@@ -1,14 +1,13 @@
 angular.module('app').controller("ApisController", ["$scope", "Kong", function ($scope, Kong) {
     $scope.apis = [];
     $scope.total = null;
-    $scope.offset = true;
+    $scope.offset = null;
 
     var loaded_pages = [];
     $scope.loadMore = function() {
-        var page = '/apis?';
+        var page = '/apis?size=1000&';
         if ($scope.offset) {
-            page += 'offset=' + $scope.offset + '&size=1000&';
-            $scope.offset = null;
+            page += 'offset=' + $scope.offset + '&';
         }
         if (loaded_pages.indexOf(page) !== -1) {
             return;
