@@ -9,7 +9,9 @@ RUN npm install && \
     # See https://github.com/npm/npm/issues/17781
     rm -rf node_modules/ && \
     npm install --production
+
 RUN chmod -R 777 /app
+
 EXPOSE 8080
 
 ENTRYPOINT ["./docker/entrypoint.sh"]
